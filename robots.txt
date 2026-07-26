@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Allow: /rss.xml
+
+Sitemap: https://sklleon.github.io/dadetka/sitemap.xml
