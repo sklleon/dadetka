@@ -1,0 +1,63 @@
+# Публикация в Instagram и на Страницу Facebook.
+#
+# Живёт в репозитории сайта (sklleon/dadetka) как .github/workflows/instagram.yml,
+# исходник хранится здесь, в проекте. Зачем GitHub, а не launchd, как у ВК:
+# домены Meta из России закрыты, а раннеры GitHub ходят к ним из США.
+#
+# Что публикуется — решает ig_queue.json, его собирает Диктовка/ig_post.py и
+# привозит сюда утренняя выкладка зеркала (deploy_site.sh, 7:11 МСК).
+#
+# Секреты репозитория: META_PAGE_TOKEN · IG_USER_ID · FB_PAGE_ID
+# Как их получить — ИНСТРУКЦИЯ_Instagram_Facebook.txt, шаги 6 и 7.
+name: Instagram
+
+on:
+  schedule:
+    # 05:30 UTC = 08:30 МСК — через час с лишним после выкладки зеркала в 7:11,
+    # чтобы GitHub Pages успел пересобраться: Meta скачивает медиа сама, и на
+    # ещё не обновившемся сайте публикация упала бы на старой картинке.
+    - cron: '30 5 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'что сделать'
+        type: choice
+        default: check
+        options: [check, today, key]
+      key:
+        description: 'ключ выпуска (для mode=key), например эп5'
+        required: false
+      dry:
+        description: 'показать, но не публиковать'
+        type: boolean
+        default: false
+
+# Два запуска разом (крон догнал ручной) устроили бы дубль постов.
+concurrency:
+  group: instagram-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Опубликовать
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+        run: |
+          MODE="${{ inputs.mode || 'today' }}"
+          DRY=""
+          if [ "${{ inputs.dry }}" = "true" ]; then DRY="--dry"; fi
+          case "$MODE" in
+            check) python3 ig_publish.py --check ;;
+            key)   python3 ig_publish.py --key "${{ inputs.key }}" $DRY ;;
+            *)     python3 ig_publish.py --today $DRY ;;
+          esac
