@@ -1,0 +1,71 @@
+# FB-спринт 14–19.09.2026: публикация по расписанию на Страницу Facebook.
+#
+# Живёт в репозитории сайта (sklleon/dadetka) как .github/workflows/fb_sprint.yml,
+# исходник хранится в проекте: Диктовка/fb_sprint_workflow.yml. Правится ЗДЕСЬ.
+#
+# Зачем GitHub, а не launchd: домены Meta из России закрыты, раннеры ходят из США.
+# Что публиковать — решает ig/fb/fb_sprint.json, его собирает Диктовка/fb_спринт.py.
+#
+# Секреты репозитория (те же, что у instagram.yml): META_PAGE_TOKEN · FB_PAGE_ID
+name: FB-спринт
+
+on:
+  schedule:
+    # 07:00 UTC = 10:00 МСК. Расписание спринта написано по-московски, и
+    # публикатор сам пересчитывает день в МСК: в 07:00 UTC у нас уже 10:00,
+    # и день обязан считаться нашим, иначе субботний пост уедет в воскресенье,
+    # когда неделя площадки уже закрыта.
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: 'показать, но не публиковать'
+        type: boolean
+        default: false
+
+# ⛔ Два запуска разом (крон догнал ручной) дали бы дубль поста. Отметка
+# «опубликовано» в задании защищает от повтора в РАЗНЫХ запусках, но два
+# одновременных успели бы прочитать задание до того, как первый её проставит.
+concurrency:
+  group: fb-sprint-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # нужен, чтобы закоммитить отметку «опубликовано»
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Опубликовать
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+        run: |
+          if [ "${{ inputs.dry }}" = "true" ]; then
+            python3 fb_publish.py --dry
+          else
+            python3 fb_publish.py
+          fi
+
+      # ⚠️ Шаг обязателен и не «на всякий случай». Отметка живёт в задании, а
+      # раннер при каждом запуске чистый: не закоммитив её, завтрашний запуск
+      # увидит вчерашний пункт неопубликованным. Дубля не будет только потому,
+      # что пункт привязан к дате, — но при ручном перезапуске будет.
+      - name: Запомнить, что опубликовано
+        if: ${{ inputs.dry != true }}
+        run: |
+          if git diff --quiet -- ig/fb/fb_sprint.json; then
+            echo "задание не изменилось — коммитить нечего"
+            exit 0
+          fi
+          git config user.name "fb-sprint"
+          git config user.email "noreply@github.com"
+          git add ig/fb/fb_sprint.json
+          git commit -m "FB-спринт: отметка о публикации $(date -u '+%d.%m %H:%M UTC')"
+          git push
