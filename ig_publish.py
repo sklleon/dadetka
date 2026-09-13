@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 """Публикация в Instagram и на Страницу Facebook через Graph API.
 
-⚠️ ЭТОТ СКРИПТ НЕ РАБОТАЕТ С ДОМАШНЕЙ МАШИНЫ: домены Meta из России закрыты.
-Он живёт в репозитории сайта (github.com/sklleon/dadetka) и запускается
-GitHub Actions — их раннеры ходят к Meta из США, VPN не нужен вообще.
+⚠️ ДО 12.09.2026 ЗДЕСЬ СТОЯЛО «не работает с домашней машины: домены Meta из России
+закрыты». Это оказалось неверно. Замер 12.09.2026: facebook.com отдаёт 200,
+instagram.com — 200, а `--check` с домашней машины проходит и показывает оба аккаунта.
+Настоящей причиной отказов был отсутствующий набор корневых сертификатов у системного
+python3 — ошибка выглядела как обрыв связи, а скрипт объяснял её блокировкой и отправлял
+чинить не то. Теперь сертификаты берутся из certifi (см. `_ssl_контекст`).
+
+Скрипт живёт и в репозитории сайта (github.com/sklleon/dadetka), где его запускает
+GitHub Actions — этот путь остаётся рабочим и нужен для публикации по расписанию.
 Сюда, в Диктовка/, положен исходник: отсюда его копирует в site/ скрипт
 ig_post.py, а дальше он уезжает на GitHub вместе с зеркалом (deploy_site.sh).
 
@@ -39,9 +45,47 @@ HERE = pathlib.Path(__file__).resolve().parent
 QUEUE = HERE / "ig_queue.json"
 MSK = timezone(timedelta(hours=3))
 
-TOKEN = os.environ.get("META_PAGE_TOKEN", "")
-IG_USER = os.environ.get("IG_USER_ID", "")
-FB_PAGE = os.environ.get("FB_PAGE_ID", "")
+НАСТРОЙКИ = HERE.parent / ".claude" / "settings.local.json"
+
+
+def _секрет(переменная: str, ключ_в_файле: str) -> str:
+    """Значение из окружения, а если его нет — из settings.local.json.
+
+    ⚠️ Ключи лежат в `Podcast/.claude/settings.local.json`, а скрипты читают только
+    окружение — расхождение известно как задача #195. В Actions переменные есть всегда
+    и файла там нет вовсе, поэтому чтение файла включается ровно в локальном запуске
+    и ничего не меняет для расписания.
+    """
+    из_окружения = os.environ.get(переменная, "")
+    if из_окружения:
+        return из_окружения
+    try:
+        данные = json.loads(НАСТРОЙКИ.read_text(encoding="utf-8"))
+    except Exception:
+        return ""
+    return (данные.get("env", данные) or {}).get(ключ_в_файле, "") or ""
+
+
+def _ssl_контекст():
+    """Корневые сертификаты из certifi.
+
+    ⛔ 12.09.2026: у системного python3 на macOS их нет, и любой вызов падал с
+    CERTIFICATE_VERIFY_FAILED. Без этого контекста скрипт «не работал с домашней машины»
+    полтора месяца — не из-за блокировки, а из-за отсутствующего файла сертификатов.
+    """
+    try:
+        import ssl
+
+        import certifi
+        return ssl.create_default_context(cafile=certifi.where())
+    except Exception:
+        return None
+
+
+TOKEN = _секрет("META_PAGE_TOKEN", "FB_PAGE_ACCESS_TOKEN")
+IG_USER = _секрет("IG_USER_ID", "INSTAGRAM_ACCOUNT_ID")
+FB_PAGE = _секрет("FB_PAGE_ID", "FB_PAGE_ID")
+SSL_КОНТЕКСТ = _ssl_контекст()
 
 # Сколько ждём обработку видео: Reels на минуту-полторы обычно готовы за 20-40 сек,
 # но Meta не обещает ничего — поэтому терпим до пяти минут и только потом сдаёмся.
@@ -53,6 +97,32 @@ class MetaError(RuntimeError):
     """Ошибка от Graph API, уже переведённая на человеческий."""
 
 
+def объяснить_сетевую_ошибку(причина) -> str:
+    """Текст отказа называет причину, а не единственную заготовленную версию.
+
+    ⛔ 12.09.2026 скрипт на CERTIFICATE_VERIFY_FAILED отвечал «домены Meta из России
+    закрыты, публикация идёт только из GitHub Actions». Сеть при этом была открыта —
+    facebook.com отдавал 200, — а не хватало корневых сертификатов у системного python3.
+    Полтора месяца публикация с этой машины считалась невозможной, и правка пошла не
+    туда: чинили Actions вместо сертификатов.
+
+    📌 Та же ошибка уже была с Яндекс.Вебмастером: 403 объясняли нехваткой прав, хотя
+    причина бывала другая, — и отказ отправлял чинить не то. Отказ обязан называть обе
+    возможности и порядок проверки.
+    """
+    текст = str(причина)
+    if "CERTIFICATE_VERIFY_FAILED" in текст or "unable to get local issuer" in текст:
+        return (f"Не проверился сертификат graph.facebook.com ({текст}). "
+                "Это НЕ блокировка: связь с Meta есть, а у интерпретатора нет набора "
+                "корневых сертификатов. Запускать питоном с certifi — например "
+                "~/Projects/vtoroy-ya/.venv/bin/python — либо задать "
+                "SSL_CERT_FILE=$(python3 -m certifi).")
+    return (f"Не достучались до graph.facebook.com ({текст}). "
+            "Сертификаты тут ни при чём — причина другая. Проверять по порядку: "
+            "есть ли сеть вообще, отвечает ли curl -I https://www.facebook.com/, "
+            "и только если домен действительно закрыт — публиковать из GitHub Actions.")
+
+
 def _call(method, path, params):
     url = f"{API}/{path}"
     data = dict(params, access_token=TOKEN)
@@ -60,7 +130,7 @@ def _call(method, path, params):
     req = (urllib.request.Request(url, data=body, method="POST") if method == "POST"
            else urllib.request.Request(f"{url}?{urllib.parse.urlencode(data)}"))
     try:
-        with urllib.request.urlopen(req, timeout=120) as resp:
+        with urllib.request.urlopen(req, timeout=120, context=SSL_КОНТЕКСТ) as resp:
             return json.loads(resp.read().decode())
     except urllib.error.HTTPError as e:
         raw = e.read().decode(errors="replace")
@@ -83,10 +153,7 @@ def _call(method, path, params):
             raise MetaError(f"Упёрлись в лимит Meta (код {code}): {msg}. Повторим в следующий слот.")
         raise MetaError(f"Graph API вернул ошибку {code}: {msg}")
     except urllib.error.URLError as e:
-        raise MetaError(
-            f"Не достучались до graph.facebook.com ({e.reason}). "
-            "Если это домашняя машина — так и должно быть, домены Meta из России закрыты: "
-            "публикация идёт только из GitHub Actions.")
+        raise MetaError(объяснить_сетевую_ошибку(e.reason))
 
 
 def get(path, **params):
