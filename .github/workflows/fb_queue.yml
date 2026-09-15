@@ -1,0 +1,67 @@
+# Очередь выпусков на Страницу Facebook: вс и ср, по одному выпуску, с 20.09.2026.
+#
+# Живёт в репозитории сайта (sklleon/dadetka) как .github/workflows/fb_queue.yml,
+# исходник — Диктовка/fb_queue_workflow.yml. Правится ЗДЕСЬ, раскладывает
+# `python3 Диктовка/fb_очередь.py --собрать`.
+#
+# Зачем GitHub, а не launchd: домены Meta из России закрыты для публикации.
+# Секреты репозитория те же, что у fb_sprint.yml: META_PAGE_TOKEN · FB_PAGE_ID
+name: FB-очередь выпусков
+
+on:
+  schedule:
+    # 07:30 UTC = 10:30 МСК, воскресенье и среда. На полчаса позже спринта
+    # (07:00): оба workflow коммитят отметки в один репозиторий, и одновременный
+    # push одного из них отбило бы.
+    - cron: '30 7 * * 0,3'
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: 'показать, но не публиковать'
+        type: boolean
+        default: false
+
+# ⛔ Та же группа, что у спринта: публикации на одну Страницу идут строго по
+# одной, и два запуска разом не прочитают задание до чужой отметки.
+concurrency:
+  group: fb-sprint-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # закоммитить отметку «опубликовано»
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Опубликовать
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+        run: |
+          if [ "${{ inputs.dry }}" = "true" ]; then
+            python3 ig/fb/fb_queue_publish.py --dry
+          else
+            python3 ig/fb/fb_queue_publish.py
+          fi
+
+      # ⚠️ Без этого шага завтрашний запуск не увидит отметку. Сверка с лентой
+      # дубль всё равно остановит, но одна защита вместо двух — надежда, а не защита.
+      - name: Запомнить, что опубликовано
+        if: ${{ inputs.dry != true }}
+        run: |
+          if git diff --quiet -- ig/fb/fb_queue.json; then
+            echo "задание не изменилось — коммитить нечего"
+            exit 0
+          fi
+          git config user.name "fb-queue"
+          git config user.email "noreply@github.com"
+          git add ig/fb/fb_queue.json
+          git commit -m "FB-очередь: отметка о публикации $(date -u '+%d.%m %H:%M UTC')"
+          git pull --rebase
+          git push
