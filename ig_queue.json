@@ -1,5 +1,5 @@
 {
- "built": "2026-09-21 12:42",
+ "built": "2026-09-21 14:09",
  "base": "https://sklleon.github.io/dadetka",
  "старт": "2026-09-22",
  "дни": [
@@ -151,8 +151,26 @@
    "fb_message": "У неё есть название для того времени\n\nУ неё есть название для того времени — «прайм-эра». Это когда совпало всё разом: настроение, компания, погода и человек рядом. Такое бывает не всегда, и такое надо ловить. Ноябрь. Две недели подряд, которые я помню лучше, чем весь остальной год.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
   },
   {
-   "key": "спец1п",
+   "key": "эп13",
    "date": "2026-10-03",
+   "format": "carousel",
+   "media": [
+    "https://sklleon.github.io/dadetka/img/ig/ep13/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep13/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep13/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep13/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep13/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep13/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep13/07.png"
+   ],
+   "caption": "На седьмой день она написала: надо закончить\n\nМы были знакомы неделю. Ровно семь дней. А потом я стёр нашу переписку — у обоих, не спросив, — и получил три сообщения подряд, последнее из которых заканчивалось словами «надо закончить».\n\nЧитать целиком — ссылка в шапке профиля.",
+   "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
+   "facebook": false,
+   "fb_message": "На седьмой день она написала: надо закончить\n\nМы были знакомы неделю. Ровно семь дней. А потом я стёр нашу переписку — у обоих, не спросив, — и получил три сообщения подряд, последнее из которых заканчивалось словами «надо закончить».\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
+  },
+  {
+   "key": "спец1п",
+   "date": "2026-10-04",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/special1p/01.png",
@@ -170,7 +188,7 @@
   },
   {
    "key": "спец2",
-   "date": "2026-10-04",
+   "date": "2026-10-05",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_special2.png"
@@ -182,7 +200,7 @@
   },
   {
    "key": "спец3",
-   "date": "2026-10-05",
+   "date": "2026-10-06",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_special3.png"
@@ -194,7 +212,7 @@
   },
   {
    "key": "спец4",
-   "date": "2026-10-06",
+   "date": "2026-10-07",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_special4.png"
