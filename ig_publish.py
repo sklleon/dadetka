@@ -298,6 +298,58 @@ def run_item(item, dry=False):
     return mid
 
 
+def головы_ленты(limit=50):
+    """Первые 60 знаков подписей последних постов Instagram. None — лента не ответила.
+
+    Журналом служит сама лента: раннер GitHub чистый при каждом запуске, а
+    отметка в очереди потребовала бы коммита обратно в репозиторий — лишний
+    шаг, который может не доехать. Лента врать не может, её ведёт площадка.
+    """
+    try:
+        медиа = get(f"{IG_USER}/media", fields="caption,timestamp", limit=limit).get("data", [])
+    except MetaError:
+        return None
+    return [((m.get("caption") or "").strip()[:60], (m.get("timestamp") or "")[:10])
+            for m in медиа]
+
+
+def решить(очередь, лента, сегодня):
+    """Что публиковать сегодня. → (пункт или None, объяснение).
+
+    Чистая функция: сеть и файл снаружи, чтобы каждое «нет» проверялось тестом.
+
+    ⛔ 21.09.2026 здесь стоял отбор `[i for i in items if i["date"] == today]`.
+    Строгое равенство означает, что пропущенный день теряется навсегда: запись
+    остаётся в очереди, но её дата уже не наступит. К 21.09 так накопилось 12
+    записей возрастом от 31 до 54 дней — весь хвост сериала.
+
+    📌 Поэтому берём ПЕРВЫЙ НЕВЫЛОЖЕННЫЙ, а не «назначенный на сегодня» — тот же
+    приём, что у очереди Страницы (`fb_queue_publish.решить`, 15.09.2026). Дата в
+    записи остаётся планом для доски, а очередью правит порядок.
+
+    ⛔ Лента не прочиталась — не публикуем вовсе. Сверка, которую пропустили
+    молча, хуже отсутствующей: она выглядит сделанной.
+    """
+    старт = очередь.get("старт")
+    if старт and сегодня.isoformat() < старт:
+        return None, f"очередь стартует {старт} — до этого молчу"
+    дни = очередь.get("дни")
+    if дни is not None and сегодня.weekday() not in дни:
+        return None, "сегодня не день очереди — молчу"
+    if лента is None:
+        return None, "ленту Instagram прочитать не удалось — без сверки не публикую"
+    if any(д == сегодня.isoformat() for _г, д in лента):
+        return None, "сегодня в ленте уже есть пост — второй за день не шлю"
+    головы = {г for г, _д in лента}
+    for п in очередь["items"]:
+        if п.get("format") == "story":
+            continue                    # сторис живёт сутки, очередью не ведётся
+        if п["caption"].strip()[:60] in головы:
+            continue                    # уже в ленте
+        return п, f"следующий: {п['key']} ({п['format']}, план {п['date']})"
+    return None, "очередь пуста — весь хвост уже в ленте Instagram"
+
+
 def check():
     """Проверка связи: кто мы, что за Страница, сколько уже постов."""
     me = get(IG_USER, fields="username,name,followers_count,media_count")
@@ -307,9 +359,17 @@ def check():
         page = get(FB_PAGE, fields="name,fan_count,link")
         print(f"✅ Facebook: {page.get('name')} · подписчиков {page.get('fan_count')} · {page.get('link')}")
     q = load_queue()
-    today = datetime.now(MSK).strftime("%Y-%m-%d")
-    due = [i for i in q["items"] if i["date"] == today]
-    print(f"✅ очередь: {len(q['items'])} записей, собрана {q.get('built')}, на сегодня — {len(due)}")
+    лента = головы_ленты()
+    п, почему = решить(q, лента, datetime.now(MSK).date())
+    print(f"✅ очередь: {len(q['items'])} записей, собрана {q.get('built')}, "
+          f"старт {q.get('старт', '—')}")
+    print(f"📅 сегодня: {почему}")
+    if лента is None:
+        print("⛔ лента Instagram не прочиталась — публикация была бы отменена")
+    else:
+        осталось = sum(1 for i in q["items"] if i.get("format") != "story"
+                       and i["caption"].strip()[:60] not in {г for г, _ in лента})
+        print(f"✅ в ленте {len(лента)} постов · в очереди ждут {осталось}")
 
 
 def main():
@@ -332,8 +392,12 @@ def main():
     if args.key:
         items = [i for i in items if i["key"] == args.key]
     elif args.today:
-        today = datetime.now(MSK).strftime("%Y-%m-%d")
-        items = [i for i in items if i["date"] == today]
+        # Один выпуск за запуск: очередь догоняет хвост по дню, а не заливает
+        # двенадцать постов подряд.
+        q = load_queue()
+        п, почему = решить(q, головы_ленты(), datetime.now(MSK).date())
+        print(f"📅 {почему}")
+        items = [п] if п else []
     else:
         raise SystemExit("нужен --today, --key или --check")
     if args.format:
