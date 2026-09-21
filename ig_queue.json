@@ -1,5 +1,5 @@
 {
- "built": "2026-09-21 12:05",
+ "built": "2026-09-21 12:10",
  "base": "https://sklleon.github.io/dadetka",
  "старт": "2026-09-22",
  "дни": [
@@ -13,8 +13,32 @@
  ],
  "items": [
   {
-   "key": "спец1п",
+   "key": "эп2н",
    "date": "2026-09-22",
+   "format": "cover",
+   "media": [
+    "https://sklleon.github.io/dadetka/img/ig/cover_ep2n.png"
+   ],
+   "caption": "Он заблокировал меня везде\n\nЕсть ссоры, из которых выходят словами. А есть такие, где слова уже не проходят — все каналы закрыты, переписка стёрта, ты для человека больше не существуешь. Он программист. Он умеет закрывать двери так, чтобы не осталось ни одной щели.\n\nЧитать целиком — ссылка в шапке профиля.",
+   "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
+   "facebook": false,
+   "fb_message": "Он заблокировал меня везде\n\nЕсть ссоры, из которых выходят словами. А есть такие, где слова уже не проходят — все каналы закрыты, переписка стёрта, ты для человека больше не существуешь. Он программист. Он умеет закрывать двери так, чтобы не осталось ни одной щели.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
+  },
+  {
+   "key": "эп3п",
+   "date": "2026-09-23",
+   "format": "cover",
+   "media": [
+    "https://sklleon.github.io/dadetka/img/ig/cover_ep3p.png"
+   ],
+   "caption": "Она пила Макаллан в белом костюме\n\nПроверка, которую проходит не каждая женщина: попасть в компанию его друзей. Не в ресторан с белыми скатертями, а туда, где свои, где говорят громко и наливают простое. Я привёл её и приготовился спасать положение.\n\nЧитать целиком — ссылка в шапке профиля.",
+   "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
+   "facebook": false,
+   "fb_message": "Она пила Макаллан в белом костюме\n\nПроверка, которую проходит не каждая женщина: попасть в компанию его друзей. Не в ресторан с белыми скатертями, а туда, где свои, где говорят громко и наливают простое. Я привёл её и приготовился спасать положение.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
+  },
+  {
+   "key": "спец1п",
+   "date": "2026-09-24",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_special1p.png"
@@ -26,7 +50,7 @@
   },
   {
    "key": "эп4п",
-   "date": "2026-09-23",
+   "date": "2026-09-25",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep4p.png"
@@ -38,7 +62,7 @@
   },
   {
    "key": "эп5",
-   "date": "2026-09-24",
+   "date": "2026-09-26",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep5.png"
@@ -50,7 +74,7 @@
   },
   {
    "key": "эп6",
-   "date": "2026-09-25",
+   "date": "2026-09-27",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep6.png"
@@ -62,7 +86,7 @@
   },
   {
    "key": "эп7",
-   "date": "2026-09-26",
+   "date": "2026-09-28",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep7.png"
@@ -74,7 +98,7 @@
   },
   {
    "key": "эп9ч1",
-   "date": "2026-09-27",
+   "date": "2026-09-29",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep9part1.png"
@@ -86,7 +110,7 @@
   },
   {
    "key": "эп9ч2",
-   "date": "2026-09-28",
+   "date": "2026-09-30",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep9part2.png"
@@ -98,7 +122,7 @@
   },
   {
    "key": "эп10",
-   "date": "2026-09-29",
+   "date": "2026-10-01",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep10.png"
@@ -110,7 +134,7 @@
   },
   {
    "key": "спец2",
-   "date": "2026-09-30",
+   "date": "2026-10-02",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_special2.png"
@@ -122,7 +146,7 @@
   },
   {
    "key": "эп11",
-   "date": "2026-10-01",
+   "date": "2026-10-03",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep11.png"
@@ -134,7 +158,7 @@
   },
   {
    "key": "спец3",
-   "date": "2026-10-02",
+   "date": "2026-10-04",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_special3.png"
@@ -146,7 +170,7 @@
   },
   {
    "key": "спец4",
-   "date": "2026-10-04",
+   "date": "2026-10-06",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_special4.png"
