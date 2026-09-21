@@ -1,5 +1,5 @@
 {
- "built": "2026-09-21 12:30",
+ "built": "2026-09-21 12:42",
  "base": "https://sklleon.github.io/dadetka",
  "старт": "2026-09-22",
  "дни": [
@@ -15,9 +15,15 @@
   {
    "key": "эп2н",
    "date": "2026-09-22",
-   "format": "cover",
+   "format": "carousel",
    "media": [
-    "https://sklleon.github.io/dadetka/img/ig/cover_ep2n.png"
+    "https://sklleon.github.io/dadetka/img/ig/ep2n/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep2n/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep2n/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep2n/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep2n/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep2n/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep2n/07.png"
    ],
    "caption": "Он заблокировал меня везде\n\nЕсть ссоры, из которых выходят словами. А есть такие, где слова уже не проходят — все каналы закрыты, переписка стёрта, ты для человека больше не существуешь. Он программист. Он умеет закрывать двери так, чтобы не осталось ни одной щели.\n\nЧитать целиком — ссылка в шапке профиля.",
    "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
@@ -147,9 +153,15 @@
   {
    "key": "спец1п",
    "date": "2026-10-03",
-   "format": "cover",
+   "format": "carousel",
    "media": [
-    "https://sklleon.github.io/dadetka/img/ig/cover_special1p.png"
+    "https://sklleon.github.io/dadetka/img/ig/special1p/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/special1p/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/special1p/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/special1p/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/special1p/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/special1p/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/special1p/07.png"
    ],
    "caption": "Мы ходили в рестораны через дорогу\n\nИногда смотришь назад и понимаешь: вы были в двухстах метрах друг от друга каждую пятницу. Целый год. Он со своими — в одном месте, она с подругами — в соседнем. Одна улица. Одни и те же вечера. Ни одного пересечения.\n\nЧитать целиком — ссылка в шапке профиля.",
    "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
