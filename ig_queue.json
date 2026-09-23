@@ -1,5 +1,5 @@
 {
- "built": "2026-09-23 08:49",
+ "built": "2026-09-23 10:26",
  "base": "https://sklleon.github.io/dadetka",
  "старт": "2026-09-22",
  "дни": [
@@ -27,9 +27,15 @@
   {
    "key": "эп4п",
    "date": "2026-09-24",
-   "format": "cover",
+   "format": "carousel",
    "media": [
-    "https://sklleon.github.io/dadetka/img/ig/cover_ep4p.png"
+    "https://sklleon.github.io/dadetka/img/ig/ep4p/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep4p/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep4p/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep4p/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep4p/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep4p/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep4p/07.png"
    ],
    "caption": "Она плакала в трубку в час ночи\n\nУ нас было правило: при её ребёнке меня не существует. Не приезжаю, не звоню, не появляюсь. Правило её, и я его принял. И вот звонок: она на нервах, хлопнула дверью, прищемила руку, ей плохо прямо сейчас.\n\nЧитать целиком — ссылка в шапке профиля.",
    "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
