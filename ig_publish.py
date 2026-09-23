@@ -28,6 +28,10 @@ ig_post.py, а дальше он уезжает на GitHub вместе с зе
 дождаться, пока Meta его обработает, иначе публикация падает с «Media ID is
 not available». Для карусели контейнеров столько же, сколько слайдов, плюс
 один общий.
+
+⚠️ Ждать обработки надо и для ФОТО тоже — не только для видео. Здесь два года
+стояло обратное, и 23.09.2026 карусель Эп.3 упала с 9007. Подробности в
+докстроке `wait_ready`.
 """
 import argparse
 import json
@@ -171,19 +175,34 @@ def container(**params):
     return post(f"{IG_USER}/media", **params)["id"]
 
 
-def wait_ready(cid):
-    """Дождаться, пока Meta обработает видео. Для фото не нужно."""
+def wait_ready(cid, что="видео", предел=None):
+    """Дождаться, пока Meta обработает контейнер.
+
+    ⛔ 23.09.2026 здесь стояло «для фото не нужно», и для фото-карусели эта
+    функция не звалась вовсе. Публикация Эп.3 упала:
+
+        ❌ Graph API вернул ошибку 9007: Media ID is not available
+
+    Все семь дочерних контейнеров создались, а собрать из них карусель Meta
+    отказалась — они ещё не были обработаны. Карусели 18.09 и 22.09 прошли без
+    ожидания, поэтому правило «для фото не нужно» два раза подряд выглядело
+    верным: оно описывало не требование Meta, а скорость её очереди в тот час.
+
+    📌 Именно так и выглядит догадка, притворившаяся знанием: она
+    подтверждается, пока условия не меняются, и ломается молча.
+    """
+    предел = VIDEO_TIMEOUT if предел is None else предел
     waited = 0
-    while waited < VIDEO_TIMEOUT:
+    while waited < предел:
         st = get(cid, fields="status_code,status").get("status_code")
         if st == "FINISHED":
             return
         if st == "ERROR":
-            raise MetaError(f"Meta не смогла обработать видео: {get(cid, fields='status').get('status')}")
+            raise MetaError(f"Meta не смогла обработать {что}: {get(cid, fields='status').get('status')}")
         time.sleep(VIDEO_POLL)
         waited += VIDEO_POLL
-        print(f"   … обработка видео, {waited} сек")
-    raise MetaError(f"Видео не обработалось за {VIDEO_TIMEOUT} сек — публикацию не делаем.")
+        print(f"   … обработка ({что}), {waited} сек")
+    raise MetaError(f"{что.capitalize()} не обработалось за {предел} сек — публикацию не делаем.")
 
 
 def publish(cid):
@@ -195,12 +214,28 @@ def post_image(url, caption):
     return publish(container(image_url=url, caption=caption))
 
 
+CAROUSEL_TIMEOUT = 120
+
+
 def post_carousel(urls, caption):
+    """⛔ Ожидание готовности обязательно — см. докстроку `wait_ready`.
+
+    Ждём дважды и в правильном порядке: сперва каждый слайд по отдельности,
+    потом общий контейнер карусели. Общий создаётся из id слайдов, и если хоть
+    один ещё не готов, Meta отвечает 9007 — «Media ID is not available», не
+    называя, какой именно.
+    """
     if not 2 <= len(urls) <= 10:
         raise MetaError(f"В карусели должно быть от 2 до 10 слайдов, а их {len(urls)}.")
-    children = [container(image_url=u, is_carousel_item="true") for u in urls]
+    children = []
+    for n, u in enumerate(urls, 1):
+        cid = container(image_url=u, is_carousel_item="true")
+        wait_ready(cid, что=f"слайд {n} из {len(urls)}", предел=CAROUSEL_TIMEOUT)
+        children.append(cid)
     print(f"   слайдов подготовлено: {len(children)}")
-    return publish(container(media_type="CAROUSEL", children=",".join(children), caption=caption))
+    общий = container(media_type="CAROUSEL", children=",".join(children), caption=caption)
+    wait_ready(общий, что="карусель целиком", предел=CAROUSEL_TIMEOUT)
+    return publish(общий)
 
 
 def post_reel(video_url, caption, cover_url=None):
