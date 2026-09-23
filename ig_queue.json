@@ -1,5 +1,5 @@
 {
- "built": "2026-09-23 10:26",
+ "built": "2026-09-23 10:33",
  "base": "https://sklleon.github.io/dadetka",
  "старт": "2026-09-22",
  "дни": [
@@ -45,9 +45,15 @@
   {
    "key": "эп5",
    "date": "2026-09-25",
-   "format": "cover",
+   "format": "carousel",
    "media": [
-    "https://sklleon.github.io/dadetka/img/ig/cover_ep5.png"
+    "https://sklleon.github.io/dadetka/img/ig/ep5/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep5/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep5/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep5/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep5/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep5/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep5/07.png"
    ],
    "caption": "Знакомство с её подругами\n\nМужчины думают, что знакомство с подругами — это формальность: пришёл, улыбнулся, всем понравился. Это не формальность. Это экзамен, который принимают каждую пятницу, и оценки за него выставляют не тебе, а ей.\n\nЧитать целиком — ссылка в шапке профиля.",
    "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
