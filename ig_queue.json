@@ -1,33 +1,20 @@
 {
- "built": "2026-09-23 07:59",
+ "built": "2026-09-23 08:49",
  "base": "https://sklleon.github.io/dadetka",
  "старт": "2026-09-22",
  "дни": [
+  0,
   1,
-  4
+  2,
+  3,
+  4,
+  5,
+  6
  ],
  "items": [
   {
-   "key": "эп2н",
-   "date": "2026-09-25",
-   "format": "carousel",
-   "media": [
-    "https://sklleon.github.io/dadetka/img/ig/ep2n/01.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep2n/02.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep2n/03.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep2n/04.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep2n/05.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep2n/06.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep2n/07.png"
-   ],
-   "caption": "Он заблокировал меня везде\n\nЕсть ссоры, из которых выходят словами. А есть такие, где слова уже не проходят — все каналы закрыты, переписка стёрта, ты для человека больше не существуешь. Он программист. Он умеет закрывать двери так, чтобы не осталось ни одной щели.\n\nЧитать целиком — ссылка в шапке профиля.",
-   "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
-   "facebook": false,
-   "fb_message": "Он заблокировал меня везде\n\nЕсть ссоры, из которых выходят словами. А есть такие, где слова уже не проходят — все каналы закрыты, переписка стёрта, ты для человека больше не существуешь. Он программист. Он умеет закрывать двери так, чтобы не осталось ни одной щели.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
-  },
-  {
    "key": "эп3п",
-   "date": "2026-09-29",
+   "date": "2026-09-23",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep3p.png"
@@ -39,7 +26,7 @@
   },
   {
    "key": "эп4п",
-   "date": "2026-10-02",
+   "date": "2026-09-24",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep4p.png"
@@ -51,7 +38,7 @@
   },
   {
    "key": "эп5",
-   "date": "2026-10-06",
+   "date": "2026-09-25",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep5.png"
@@ -63,7 +50,7 @@
   },
   {
    "key": "эп6",
-   "date": "2026-10-09",
+   "date": "2026-09-26",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep6.png"
@@ -75,7 +62,7 @@
   },
   {
    "key": "эп7",
-   "date": "2026-10-13",
+   "date": "2026-09-27",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep7.png"
@@ -87,7 +74,7 @@
   },
   {
    "key": "эп8",
-   "date": "2026-10-16",
+   "date": "2026-09-28",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep8.png"
@@ -99,7 +86,7 @@
   },
   {
    "key": "эп9ч1",
-   "date": "2026-10-20",
+   "date": "2026-09-29",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep9part1.png"
@@ -111,7 +98,7 @@
   },
   {
    "key": "эп9ч2",
-   "date": "2026-10-23",
+   "date": "2026-09-30",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep9part2.png"
@@ -123,7 +110,7 @@
   },
   {
    "key": "эп10",
-   "date": "2026-10-27",
+   "date": "2026-10-01",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep10.png"
@@ -135,7 +122,7 @@
   },
   {
    "key": "эп11",
-   "date": "2026-10-30",
+   "date": "2026-10-02",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep11.png"
@@ -147,7 +134,7 @@
   },
   {
    "key": "эп13",
-   "date": "2026-11-03",
+   "date": "2026-10-03",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep13/01.png",
@@ -165,7 +152,7 @@
   },
   {
    "key": "спец1п",
-   "date": "2026-11-06",
+   "date": "2026-10-04",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/special1p/01.png",
@@ -183,7 +170,7 @@
   },
   {
    "key": "спец2",
-   "date": "2026-11-10",
+   "date": "2026-10-05",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_special2.png"
@@ -195,7 +182,7 @@
   },
   {
    "key": "спец3",
-   "date": "2026-11-13",
+   "date": "2026-10-06",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_special3.png"
@@ -207,7 +194,7 @@
   },
   {
    "key": "спец4",
-   "date": "2026-11-17",
+   "date": "2026-10-07",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_special4.png"
