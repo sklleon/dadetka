@@ -1,20 +1,15 @@
 {
- "built": "2026-09-22 10:41",
+ "built": "2026-09-23 07:59",
  "base": "https://sklleon.github.io/dadetka",
  "старт": "2026-09-22",
  "дни": [
-  0,
   1,
-  2,
-  3,
-  4,
-  5,
-  6
+  4
  ],
  "items": [
   {
    "key": "эп2н",
-   "date": "2026-09-22",
+   "date": "2026-09-25",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep2n/01.png",
@@ -32,7 +27,7 @@
   },
   {
    "key": "эп3п",
-   "date": "2026-09-23",
+   "date": "2026-09-29",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep3p.png"
@@ -44,7 +39,7 @@
   },
   {
    "key": "эп4п",
-   "date": "2026-09-24",
+   "date": "2026-10-02",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep4p.png"
@@ -56,7 +51,7 @@
   },
   {
    "key": "эп5",
-   "date": "2026-09-25",
+   "date": "2026-10-06",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep5.png"
@@ -68,7 +63,7 @@
   },
   {
    "key": "эп6",
-   "date": "2026-09-26",
+   "date": "2026-10-09",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep6.png"
@@ -80,7 +75,7 @@
   },
   {
    "key": "эп7",
-   "date": "2026-09-27",
+   "date": "2026-10-13",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep7.png"
@@ -92,7 +87,7 @@
   },
   {
    "key": "эп8",
-   "date": "2026-09-28",
+   "date": "2026-10-16",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep8.png"
@@ -104,7 +99,7 @@
   },
   {
    "key": "эп9ч1",
-   "date": "2026-09-29",
+   "date": "2026-10-20",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep9part1.png"
@@ -116,7 +111,7 @@
   },
   {
    "key": "эп9ч2",
-   "date": "2026-09-30",
+   "date": "2026-10-23",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep9part2.png"
@@ -128,7 +123,7 @@
   },
   {
    "key": "эп10",
-   "date": "2026-10-01",
+   "date": "2026-10-27",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep10.png"
@@ -140,7 +135,7 @@
   },
   {
    "key": "эп11",
-   "date": "2026-10-02",
+   "date": "2026-10-30",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_ep11.png"
@@ -152,7 +147,7 @@
   },
   {
    "key": "эп13",
-   "date": "2026-10-03",
+   "date": "2026-11-03",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep13/01.png",
@@ -170,7 +165,7 @@
   },
   {
    "key": "спец1п",
-   "date": "2026-10-04",
+   "date": "2026-11-06",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/special1p/01.png",
@@ -188,7 +183,7 @@
   },
   {
    "key": "спец2",
-   "date": "2026-10-05",
+   "date": "2026-11-10",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_special2.png"
@@ -200,7 +195,7 @@
   },
   {
    "key": "спец3",
-   "date": "2026-10-06",
+   "date": "2026-11-13",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_special3.png"
@@ -212,7 +207,7 @@
   },
   {
    "key": "спец4",
-   "date": "2026-10-07",
+   "date": "2026-11-17",
    "format": "cover",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/cover_special4.png"
