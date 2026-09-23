@@ -1,5 +1,5 @@
 {
- "built": "2026-09-23 11:38",
+ "built": "2026-09-23 11:45",
  "base": "https://sklleon.github.io/dadetka",
  "старт": "2026-09-22",
  "дни": [
@@ -15,9 +15,15 @@
   {
    "key": "эп3п",
    "date": "2026-09-23",
-   "format": "cover",
+   "format": "carousel",
    "media": [
-    "https://sklleon.github.io/dadetka/img/ig/cover_ep3p.png"
+    "https://sklleon.github.io/dadetka/img/ig/ep3p/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep3p/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep3p/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep3p/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep3p/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep3p/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep3p/07.png"
    ],
    "caption": "Она пила Макаллан в белом костюме\n\nПроверка, которую проходит не каждая женщина: попасть в компанию его друзей. Не в ресторан с белыми скатертями, а туда, где свои, где говорят громко и наливают простое. Я привёл её и приготовился спасать положение.\n\nЧитать целиком — ссылка в шапке профиля.",
    "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
