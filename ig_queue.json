@@ -1,5 +1,5 @@
 {
- "built": "2026-10-03 10:41",
+ "built": "2026-10-04 10:41",
  "base": "https://sklleon.github.io/dadetka",
  "старт": "2026-09-22",
  "дни": [
@@ -14,7 +14,7 @@
  "items": [
   {
    "key": "эп9ч1",
-   "date": "2026-10-03",
+   "date": "2026-10-04",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep9part1/01.png",
@@ -32,7 +32,7 @@
   },
   {
    "key": "эп9ч2",
-   "date": "2026-10-04",
+   "date": "2026-10-05",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep9part2/01.png",
@@ -50,7 +50,7 @@
   },
   {
    "key": "эп10",
-   "date": "2026-10-05",
+   "date": "2026-10-06",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep10/01.png",
@@ -67,26 +67,26 @@
    "fb_message": "Он стоял у стойки в застёгнутой рубашке\n\nСтолько выпусков подряд этот мужчина рассказывал, какая я замечательная. Но самое интересное он забыл — каким был он сам, когда я его нашла. Сегодня микрофон у меня, и я провожу инвентаризацию: еда, одежда, волосы, запах. И отдельным пунктом — самое трудное: научить взрослого человека развлекаться.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
   },
   {
-   "key": "эп11",
-   "date": "2026-10-06",
+   "key": "эп12",
+   "date": "2026-10-07",
    "format": "carousel",
    "media": [
-    "https://sklleon.github.io/dadetka/img/ig/ep11/01.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep11/02.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep11/03.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep11/04.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep11/05.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep11/06.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep11/07.png"
+    "https://sklleon.github.io/dadetka/img/ig/ep12/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep12/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep12/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep12/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep12/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep12/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/ep12/07.png"
    ],
-   "caption": "У неё есть название для того времени\n\nУ неё есть название для того времени — «прайм-эра». Это когда совпало всё разом: настроение, компания, погода и человек рядом. Такое бывает не всегда, и такое надо ловить. Ноябрь. Две недели подряд, которые я помню лучше, чем весь остальной год.\n\nЧитать целиком — ссылка в шапке профиля.",
+   "caption": "Язык, которого я не знал\n\nМоя женщина знает все песни. Не «много» — все. В ресторане с двух нот назовёт исполнителя, год и строчку, которая сейчас прозвучит. Однажды я решил её обыграть. И проиграл — не потому что плохо старался.\n\nЧитать целиком — ссылка в шапке профиля.",
    "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
    "facebook": false,
-   "fb_message": "У неё есть название для того времени\n\nУ неё есть название для того времени — «прайм-эра». Это когда совпало всё разом: настроение, компания, погода и человек рядом. Такое бывает не всегда, и такое надо ловить. Ноябрь. Две недели подряд, которые я помню лучше, чем весь остальной год.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
+   "fb_message": "Язык, которого я не знал\n\nМоя женщина знает все песни. Не «много» — все. В ресторане с двух нот назовёт исполнителя, год и строчку, которая сейчас прозвучит. Однажды я решил её обыграть. И проиграл — не потому что плохо старался.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
   },
   {
    "key": "эп13",
-   "date": "2026-10-07",
+   "date": "2026-10-08",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep13/01.png",
@@ -104,7 +104,7 @@
   },
   {
    "key": "спец1п",
-   "date": "2026-10-08",
+   "date": "2026-10-09",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/special1p/01.png",
@@ -122,7 +122,7 @@
   },
   {
    "key": "спец2",
-   "date": "2026-10-09",
+   "date": "2026-10-10",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/special2/01.png",
@@ -140,7 +140,7 @@
   },
   {
    "key": "спец3",
-   "date": "2026-10-10",
+   "date": "2026-10-11",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/special3/01.png",
@@ -158,7 +158,7 @@
   },
   {
    "key": "спец4",
-   "date": "2026-10-11",
+   "date": "2026-10-12",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/special4/01.png",
@@ -173,6 +173,132 @@
    "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
    "facebook": false,
    "fb_message": "А ты ей что дал?\n\nВ прошлый раз я рассказал, что она дала мне: еду, одежду, музыку, вкус к жизни. Логичный встречный вопрос — а ты ей что дал? Ответ у меня получился не тот, которого от меня ждали.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
+  },
+  {
+   "key": "спец6",
+   "date": "2026-10-13",
+   "format": "carousel",
+   "media": [
+    "https://sklleon.github.io/dadetka/img/ig/special6/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/special6/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/special6/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/special6/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/special6/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/special6/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/special6/07.png"
+   ],
+   "caption": "Я держу обещание, которого никому не давал\n\nВторой месяц ссоры. Она не хочет отношений и говорит это прямым текстом. Ведущая предупредила, что сегодня будет двадцать один плюс, — и спросила то, что обычно не спрашивают: неужели у тебя нет потребности?\n\nЧитать целиком — ссылка в шапке профиля.",
+   "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
+   "facebook": false,
+   "fb_message": "Я держу обещание, которого никому не давал\n\nВторой месяц ссоры. Она не хочет отношений и говорит это прямым текстом. Ведущая предупредила, что сегодня будет двадцать один плюс, — и спросила то, что обычно не спрашивают: неужели у тебя нет потребности?\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
+  },
+  {
+   "key": "спец7",
+   "date": "2026-10-14",
+   "format": "carousel",
+   "media": [
+    "https://sklleon.github.io/dadetka/img/ig/special7/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/special7/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/special7/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/special7/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/special7/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/special7/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/special7/07.png"
+   ],
+   "caption": "Я достроил в голове целую жизнь\n\nЯ люблю думать. Иногда так увлекаюсь, что мысли начинают множиться — и из вроде бы романтичной мысли вырастает мутант. На первой встрече она сказала: отношения мне не нужны. Я согласился — и за следующие месяцы построил поверх этой фразы отпуска, острова, детей и дом у моря.\n\nЧитать целиком — ссылка в шапке профиля.",
+   "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
+   "facebook": false,
+   "fb_message": "Я достроил в голове целую жизнь\n\nЯ люблю думать. Иногда так увлекаюсь, что мысли начинают множиться — и из вроде бы романтичной мысли вырастает мутант. На первой встрече она сказала: отношения мне не нужны. Я согласился — и за следующие месяцы построил поверх этой фразы отпуска, острова, детей и дом у моря.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
+  },
+  {
+   "key": "спец8",
+   "date": "2026-10-15",
+   "format": "carousel",
+   "media": [
+    "https://sklleon.github.io/dadetka/img/ig/special8/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/special8/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/special8/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/special8/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/special8/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/special8/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/special8/07.png"
+   ],
+   "caption": "Сто процентов вперёд\n\nВ прошлый раз я объяснил, что такое для меня верность. А на вопрос, откуда у меня вообще этот стандарт, отвечать отказался — не сегодня. Ведущая записала вопрос и вернулась к нему. И я впервые сказал, где это началось: не в семье и не в школе.\n\nЧитать целиком — ссылка в шапке профиля.",
+   "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
+   "facebook": false,
+   "fb_message": "Сто процентов вперёд\n\nВ прошлый раз я объяснил, что такое для меня верность. А на вопрос, откуда у меня вообще этот стандарт, отвечать отказался — не сегодня. Ведущая записала вопрос и вернулась к нему. И я впервые сказал, где это началось: не в семье и не в школе.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
+  },
+  {
+   "key": "спец9",
+   "date": "2026-10-16",
+   "format": "carousel",
+   "media": [
+    "https://sklleon.github.io/dadetka/img/ig/special9/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/special9/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/special9/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/special9/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/special9/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/special9/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/special9/07.png"
+   ],
+   "caption": "Качели\n\nПосле расставания мысль о человеке собирается и разбирается по десять раз на дню. Утром тебе говорят, что она молодец, — веришь. Днём, что видели её не там, — тоже веришь. Я назвал это качелями. И понял: раскачиваю их не я.\n\nЧитать целиком — ссылка в шапке профиля.",
+   "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
+   "facebook": false,
+   "fb_message": "Качели\n\nПосле расставания мысль о человеке собирается и разбирается по десять раз на дню. Утром тебе говорят, что она молодец, — веришь. Днём, что видели её не там, — тоже веришь. Я назвал это качелями. И понял: раскачиваю их не я.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
+  },
+  {
+   "key": "спец10",
+   "date": "2026-10-17",
+   "format": "carousel",
+   "media": [
+    "https://sklleon.github.io/dadetka/img/ig/special10/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/special10/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/special10/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/special10/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/special10/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/special10/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/special10/07.png"
+   ],
+   "caption": "Новости друг о друге — через подругу, или Как пара разучилась говорить напрямую\n\nМы умели говорить. Однажды проговорили четыре часа — и всё работало. А под конец новости друг о друге узнавали через подругу. Где-то между этими двумя точками и надломилось.\n\nЧитать целиком — ссылка в шапке профиля.",
+   "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
+   "facebook": false,
+   "fb_message": "Новости друг о друге — через подругу, или Как пара разучилась говорить напрямую\n\nМы умели говорить. Однажды проговорили четыре часа — и всё работало. А под конец новости друг о друге узнавали через подругу. Где-то между этими двумя точками и надломилось.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
+  },
+  {
+   "key": "спец11",
+   "date": "2026-10-18",
+   "format": "carousel",
+   "media": [
+    "https://sklleon.github.io/dadetka/img/ig/special11/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/special11/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/special11/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/special11/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/special11/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/special11/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/special11/07.png"
+   ],
+   "caption": "Ахиллесова пята\n\nЯ боец. Мог подраться, мог исчезнуть на день и никому не отчитываться. А перед ней — ни одного шанса. Стоило ей подойти в упор, обнять — и я на лопатках. Каждый раз без исключения.\n\nЧитать целиком — ссылка в шапке профиля.",
+   "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
+   "facebook": false,
+   "fb_message": "Ахиллесова пята\n\nЯ боец. Мог подраться, мог исчезнуть на день и никому не отчитываться. А перед ней — ни одного шанса. Стоило ей подойти в упор, обнять — и я на лопатках. Каждый раз без исключения.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
+  },
+  {
+   "key": "спец15",
+   "date": "2026-10-19",
+   "format": "carousel",
+   "media": [
+    "https://sklleon.github.io/dadetka/img/ig/special15/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/special15/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/special15/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/special15/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/special15/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/special15/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/special15/07.png"
+   ],
+   "caption": "Я заказал ей кольцо и не смог подарить\n\nЯ снял размер с её руки, обведя кольцо карандашом на листке. Заказал. Ждал. А достать из кармана так и не смог. В те же дни всё кончилось.\n\nЧитать целиком — ссылка в шапке профиля.",
+   "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
+   "facebook": false,
+   "fb_message": "Я заказал ей кольцо и не смог подарить\n\nЯ снял размер с её руки, обведя кольцо карандашом на листке. Заказал. Ждал. А достать из кармана так и не смог. В те же дни всё кончилось.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
   }
  ]
 }
