@@ -24,6 +24,10 @@ on:
         description: 'показать, но не публиковать'
         type: boolean
         default: false
+      force:
+        description: 'принудительно: снять защиту «раз в сутки» (догоняющий пост)'
+        type: boolean
+        default: false
 
 # ⛔ Та же группа, что у спринта: публикации на одну Страницу идут строго по
 # одной, и два запуска разом не прочитают задание до чужой отметки.
@@ -48,10 +52,12 @@ jobs:
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
         run: |
+          ФЛАГИ=""
+          if [ "${{ inputs.force }}" = "true" ]; then ФЛАГИ="--принудительно"; fi
           if [ "${{ inputs.dry }}" = "true" ]; then
-            python3 ig/fb/fb_queue_publish.py --dry
+            python3 ig/fb/fb_queue_publish.py --dry $ФЛАГИ
           else
-            python3 ig/fb/fb_queue_publish.py
+            python3 ig/fb/fb_queue_publish.py $ФЛАГИ
           fi
 
       # ⚠️ Без этого шага завтрашний запуск не увидит отметку. Сверка с лентой
