@@ -1,5 +1,5 @@
 {
- "built": "2026-10-04 10:41",
+ "built": "2026-10-05 10:41",
  "base": "https://sklleon.github.io/dadetka",
  "старт": "2026-09-22",
  "дни": [
@@ -14,7 +14,7 @@
  "items": [
   {
    "key": "эп9ч1",
-   "date": "2026-10-04",
+   "date": "2026-10-05",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep9part1/01.png",
@@ -32,7 +32,7 @@
   },
   {
    "key": "эп9ч2",
-   "date": "2026-10-05",
+   "date": "2026-10-06",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep9part2/01.png",
@@ -50,7 +50,7 @@
   },
   {
    "key": "эп10",
-   "date": "2026-10-06",
+   "date": "2026-10-07",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep10/01.png",
@@ -68,7 +68,7 @@
   },
   {
    "key": "эп12",
-   "date": "2026-10-07",
+   "date": "2026-10-08",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep12/01.png",
@@ -83,24 +83,6 @@
    "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
    "facebook": false,
    "fb_message": "Язык, которого я не знал\n\nМоя женщина знает все песни. Не «много» — все. В ресторане с двух нот назовёт исполнителя, год и строчку, которая сейчас прозвучит. Однажды я решил её обыграть. И проиграл — не потому что плохо старался.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
-  },
-  {
-   "key": "эп13",
-   "date": "2026-10-08",
-   "format": "carousel",
-   "media": [
-    "https://sklleon.github.io/dadetka/img/ig/ep13/01.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep13/02.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep13/03.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep13/04.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep13/05.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep13/06.png",
-    "https://sklleon.github.io/dadetka/img/ig/ep13/07.png"
-   ],
-   "caption": "На седьмой день она написала: надо закончить\n\nМы были знакомы неделю. Ровно семь дней. А потом я стёр нашу переписку — у обоих, не спросив, — и получил три сообщения подряд, последнее из которых заканчивалось словами «надо закончить».\n\nЧитать целиком — ссылка в шапке профиля.",
-   "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
-   "facebook": false,
-   "fb_message": "На седьмой день она написала: надо закончить\n\nМы были знакомы неделю. Ровно семь дней. А потом я стёр нашу переписку — у обоих, не спросив, — и получил три сообщения подряд, последнее из которых заканчивалось словами «надо закончить».\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
   },
   {
    "key": "спец1п",
