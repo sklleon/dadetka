@@ -1,5 +1,5 @@
 {
- "built": "2026-10-10 10:41",
+ "built": "2026-10-11 10:41",
  "base": "https://sklleon.github.io/dadetka",
  "старт": "2026-09-22",
  "дни": [
@@ -14,7 +14,7 @@
  "items": [
   {
    "key": "эп9ч1",
-   "date": "2026-10-10",
+   "date": "2026-10-11",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep9part1/01.png",
@@ -32,7 +32,7 @@
   },
   {
    "key": "эп9ч2",
-   "date": "2026-10-11",
+   "date": "2026-10-12",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep9part2/01.png",
@@ -50,7 +50,7 @@
   },
   {
    "key": "эп10",
-   "date": "2026-10-12",
+   "date": "2026-10-13",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep10/01.png",
@@ -65,24 +65,6 @@
    "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
    "facebook": false,
    "fb_message": "Он стоял у стойки в застёгнутой рубашке\n\nСтолько выпусков подряд этот мужчина рассказывал, какая я замечательная. Но самое интересное он забыл — каким был он сам, когда я его нашла. Сегодня микрофон у меня, и я провожу инвентаризацию: еда, одежда, волосы, запах. И отдельным пунктом — самое трудное: научить взрослого человека развлекаться.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
-  },
-  {
-   "key": "спец6",
-   "date": "2026-10-13",
-   "format": "carousel",
-   "media": [
-    "https://sklleon.github.io/dadetka/img/ig/special6/01.png",
-    "https://sklleon.github.io/dadetka/img/ig/special6/02.png",
-    "https://sklleon.github.io/dadetka/img/ig/special6/03.png",
-    "https://sklleon.github.io/dadetka/img/ig/special6/04.png",
-    "https://sklleon.github.io/dadetka/img/ig/special6/05.png",
-    "https://sklleon.github.io/dadetka/img/ig/special6/06.png",
-    "https://sklleon.github.io/dadetka/img/ig/special6/07.png"
-   ],
-   "caption": "Я держу обещание, которого никому не давал\n\nВторой месяц ссоры. Она не хочет отношений и говорит это прямым текстом. Ведущая предупредила, что сегодня будет двадцать один плюс, — и спросила то, что обычно не спрашивают: неужели у тебя нет потребности?\n\nЧитать целиком — ссылка в шапке профиля.",
-   "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
-   "facebook": false,
-   "fb_message": "Я держу обещание, которого никому не давал\n\nВторой месяц ссоры. Она не хочет отношений и говорит это прямым текстом. Ведущая предупредила, что сегодня будет двадцать один плюс, — и спросила то, что обычно не спрашивают: неужели у тебя нет потребности?\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
   },
   {
    "key": "спец7",
