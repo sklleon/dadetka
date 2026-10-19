@@ -1,5 +1,5 @@
 {
- "built": "2026-10-18 10:36",
+ "built": "2026-10-19 10:41",
  "base": "https://sklleon.github.io/dadetka",
  "старт": "2026-09-22",
  "дни": [
@@ -14,7 +14,7 @@
  "items": [
   {
    "key": "эп9ч1",
-   "date": "2026-10-18",
+   "date": "2026-10-19",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep9part1/01.png",
@@ -32,7 +32,7 @@
   },
   {
    "key": "эп9ч2",
-   "date": "2026-10-19",
+   "date": "2026-10-20",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep9part2/01.png",
@@ -50,7 +50,7 @@
   },
   {
    "key": "эп10",
-   "date": "2026-10-20",
+   "date": "2026-10-21",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep10/01.png",
@@ -65,6 +65,42 @@
    "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
    "facebook": false,
    "fb_message": "Он стоял у стойки в застёгнутой рубашке\n\nСтолько выпусков подряд этот мужчина рассказывал, какая я замечательная. Но самое интересное он забыл — каким был он сам, когда я его нашла. Сегодня микрофон у меня, и я провожу инвентаризацию: еда, одежда, волосы, запах. И отдельным пунктом — самое трудное: научить взрослого человека развлекаться.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
+  },
+  {
+   "key": "спец11",
+   "date": "2026-10-22",
+   "format": "carousel",
+   "media": [
+    "https://sklleon.github.io/dadetka/img/ig/special11/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/special11/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/special11/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/special11/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/special11/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/special11/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/special11/07.png"
+   ],
+   "caption": "Ахиллесова пята\n\nЯ боец. Мог подраться, мог исчезнуть на день и никому не отчитываться. А перед ней — ни одного шанса. Стоило ей подойти в упор, обнять — и я на лопатках. Каждый раз без исключения.\n\nЧитать целиком — ссылка в шапке профиля.",
+   "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
+   "facebook": false,
+   "fb_message": "Ахиллесова пята\n\nЯ боец. Мог подраться, мог исчезнуть на день и никому не отчитываться. А перед ней — ни одного шанса. Стоило ей подойти в упор, обнять — и я на лопатках. Каждый раз без исключения.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
+  },
+  {
+   "key": "спец15",
+   "date": "2026-10-23",
+   "format": "carousel",
+   "media": [
+    "https://sklleon.github.io/dadetka/img/ig/special15/01.png",
+    "https://sklleon.github.io/dadetka/img/ig/special15/02.png",
+    "https://sklleon.github.io/dadetka/img/ig/special15/03.png",
+    "https://sklleon.github.io/dadetka/img/ig/special15/04.png",
+    "https://sklleon.github.io/dadetka/img/ig/special15/05.png",
+    "https://sklleon.github.io/dadetka/img/ig/special15/06.png",
+    "https://sklleon.github.io/dadetka/img/ig/special15/07.png"
+   ],
+   "caption": "Я заказал ей кольцо и не смог подарить\n\nЯ снял размер с её руки, обведя кольцо карандашом на листке. Заказал. Ждал. А достать из кармана так и не смог. В те же дни всё кончилось.\n\nЧитать целиком — ссылка в шапке профиля.",
+   "comment": "#дадетка #Margaret_onelove #историиизжизни #отношения #моялучшаяжизнь #прожизнь #реальнаяистория #любовьиотношения #сериал #подкаст #москва #отношениямужчиныиженщины #романтика",
+   "facebook": false,
+   "fb_message": "Я заказал ей кольцо и не смог подарить\n\nЯ снял размер с её руки, обведя кольцо карандашом на листке. Заказал. Ждал. А достать из кармана так и не смог. В те же дни всё кончилось.\n\nЧитать целиком: https://sklleon.github.io/dadetka/"
   }
  ]
 }
