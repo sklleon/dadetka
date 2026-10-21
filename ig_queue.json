@@ -1,5 +1,5 @@
 {
- "built": "2026-10-20 10:41",
+ "built": "2026-10-21 10:41",
  "base": "https://sklleon.github.io/dadetka",
  "старт": "2026-09-22",
  "дни": [
@@ -14,7 +14,7 @@
  "items": [
   {
    "key": "эп9ч1",
-   "date": "2026-10-20",
+   "date": "2026-10-21",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep9part1/01.png",
@@ -32,7 +32,7 @@
   },
   {
    "key": "эп9ч2",
-   "date": "2026-10-21",
+   "date": "2026-10-22",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep9part2/01.png",
@@ -50,7 +50,7 @@
   },
   {
    "key": "эп10",
-   "date": "2026-10-22",
+   "date": "2026-10-23",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep10/01.png",
