@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13 10:41",
+ "built": "2026-11-14 10:41",
  "base": "https://sklleon.github.io/dadetka",
  "старт": "2026-09-22",
  "дни": [
@@ -14,7 +14,7 @@
  "items": [
   {
    "key": "эп14",
-   "date": "2026-11-13",
+   "date": "2026-11-14",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep14/01.png",
@@ -32,7 +32,7 @@
   },
   {
    "key": "эп15",
-   "date": "2026-11-14",
+   "date": "2026-11-15",
    "format": "carousel",
    "media": [
     "https://sklleon.github.io/dadetka/img/ig/ep15/01.png",
