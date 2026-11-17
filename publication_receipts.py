@@ -14,6 +14,7 @@ import json
 import os
 from pathlib import Path
 import re
+import ssl
 import tempfile
 import urllib.error
 import urllib.parse
@@ -75,6 +76,18 @@ class LocalStore:
         atomic_json(self.root / (key + '.json'), value)
 
 
+def _open(request, timeout):
+    # python.org macOS не всегда видит системные корни. На раннере без certifi
+    # используем штатное доверенное хранилище; проверку TLS не отключаем.
+    try:
+        import certifi
+    except ImportError:
+        context = ssl.create_default_context()
+    else:
+        context = ssl.create_default_context(cafile=certifi.where())
+    return urllib.request.urlopen(request, timeout=timeout, context=context)
+
+
 class GitHubStore:
     """CAS через Contents API: следующий раннер читает сохранённый intent.
 
@@ -85,7 +98,7 @@ class GitHubStore:
         if not re.fullmatch(r'[\w.-]+/[\w.-]+', repo or '') or not token:
             raise ReceiptError('Не настроено долговременное хранилище GitHub')
         self.repo, self.token, self.branch = repo, token, branch
-        self.opener = opener or urllib.request.urlopen
+        self.opener = opener or _open
         self.shas = {}
 
     @contextlib.contextmanager
