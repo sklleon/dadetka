@@ -24,6 +24,7 @@
 журнал на нём умирает вместе с машиной.
 """
 import datetime
+import publication_approval as approval
 import json
 import os
 import pathlib
@@ -68,23 +69,7 @@ def приёмка_годна(пункт, корень):
     проверка идёт на машине (`приёмка_рилса.py --штамп`), а сюда приходит её штамп
     с sha256 файла. Штамп от другого файла — не штамп: ролик могли пересобрать после
     приёмки, и тогда проверено не то, что уходит."""
-    if пункт["тип"] != "reels":
-        return True, "не ролик — приёмка не нужна"
-    штамп = пункт.get("приёмка")
-    if not штамп:
-        return False, "ролик не проходил приёмку (нет штампа приёмка_рилса.py)"
-    if штамп.get("площадка") != "мета":
-        return False, f"приёмка была для площадки «{штамп.get('площадка')}», а это Facebook"
-    хвост = пункт["media"].split("/dadetka/", 1)[-1]
-    файл = pathlib.Path(корень) / хвост
-    if not файл.exists():
-        return False, f"файла {хвост} нет в репозитории — сверять отпечаток не с чем"
-    import hashlib
-    if hashlib.sha256(файл.read_bytes()).hexdigest() != штамп.get("sha256"):
-        return False, "файл изменился после приёмки — проверен не тот ролик"
-    if not all(x.get("ok") for x in штамп.get("пункты", {}).values()) and not штамп.get("обход"):
-        return False, "приёмка не пройдена, обход без причины не записан"
-    return True, "приёмка пройдена" + (f" (обход: {штамп['обход']})" if штамп.get("обход") else "")
+    return approval.check(пункт, корень, 'facebook')
 
 
 def главная():
@@ -117,6 +102,8 @@ def главная():
         return
     if not ТОКЕН or not СТРАНИЦА:
         raise SystemExit("❌ нет META_PAGE_TOKEN или FB_PAGE_ID в окружении")
+
+    approval.verify_public(п, ЗАДАНИЕ.parent.parent.parent, 'facebook')
 
     if п["тип"] == "фото":
         ответ = запрос(f"{СТРАНИЦА}/photos", url=п["media"], caption=п["подпись"])
