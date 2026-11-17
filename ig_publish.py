@@ -34,6 +34,7 @@ not available». Для карусели контейнеров столько �
 докстроке `wait_ready`.
 """
 import argparse
+import publication_receipts as receipts
 import json
 import os
 import pathlib
@@ -287,7 +288,7 @@ def already_posted(caption):
     try:
         media = get(f"{IG_USER}/media", fields="caption,timestamp", limit=25).get("data", [])
     except MetaError:
-        return False        # не смогли проверить — не повод отменять публикацию
+        raise MetaError('Не удалось проверить дубли — отправка остановлена') from None
     return any((m.get("caption") or "").strip()[:60] == head for m in media)
 
 
@@ -300,20 +301,44 @@ def run_item(item, dry=False):
         print(f"   подпись ({len(caption)} зн.):\n{caption}")
         print(f"   первым комментарием: {item.get('comment', '—')}")
         return None
-    if already_posted(caption):
+    backend = receipts.store()
+    material = item['key']+':'+fmt
+    existing = backend.read(receipts.key_for('instagram', IG_USER, material))
+    # Незавершённая попытка должна проверяться ДО эвристики по ленте.
+    if existing is None and already_posted(caption):
         print("   ⏭  такой пост уже есть в ленте — пропускаем (защита от дубля)")
         return None
 
-    if fmt == "carousel":
-        mid = post_carousel(item["media"], caption)
-    elif fmt == "cover":
-        mid = post_image(item["media"][0], caption)
-    elif fmt == "reels":
-        mid = post_reel(item["media"][0], caption, item.get("cover"))
-    elif fmt == "story":
-        mid = post_story(item["media"][0], is_video=item.get("video", False))
-    else:
-        raise MetaError(f"неизвестный формат: {fmt}")
+    def send_instagram():
+        if fmt == "carousel":
+            mid = post_carousel(item["media"], caption)
+        elif fmt == "cover":
+            mid = post_image(item["media"][0], caption)
+        elif fmt == "reels":
+            mid = post_reel(item["media"][0], caption, item.get("cover"))
+        elif fmt == "story":
+            mid = post_story(item["media"][0], is_video=item.get("video", False))
+        else:
+            raise MetaError(f"неизвестный формат: {fmt}")
+        # ID сохраняется до необязательных комментария и кросспоста.
+        return {'external_id':mid, 'permalink':None}
+    try:
+        receipt = receipts.once(backend, 'instagram', IG_USER, material,
+            {k:item.get(k) for k in ('format','caption','media','cover','video')}, send_instagram)
+    except receipts.ReceiptError as exc:
+        raise MetaError(str(exc)) from None
+    mid = receipt['external_id']
+    # Permalink — отдельный read-only шаг; его отказ не отменяет принятый ID.
+    try:
+        link = get(mid, fields='permalink').get('permalink')
+        if link and receipt.get('permalink') != link:
+            key = receipts.key_for('instagram', IG_USER, material)
+            with backend.locked(key):
+                latest = backend.read(key)
+                latest['permalink'] = link
+                backend.write(key, latest)
+    except Exception:
+        print('   ⚠️ ID принят, ссылка пока не получена')
     print(f"   ✅ Instagram: {mid}")
     # Отметки в реестре готового видео отсюда не будет — см. докстроку
     # `головы_ленты`. Говорим об этом вслух, чтобы в журнале запуска было видно,
@@ -323,17 +348,21 @@ def run_item(item, dry=False):
 
     if item.get("comment"):
         try:
-            comment(mid, item["comment"])
+            receipts.once(backend, 'instagram-comment', mid, material,
+                {'text':item['comment']}, lambda: {'external_id':comment(mid, item['comment'])})
             print("   ✅ хэштеги первым комментарием")
-        except MetaError as e:
+        except (MetaError, receipts.ReceiptError) as e:
             print(f"   ⚠️ комментарий не ушёл: {e}")
 
-    if item.get("facebook", True) and fmt != "story":
+    if item.get("facebook", True) and fmt != "story" and FB_PAGE:
         try:
-            fid = fb_post(item.get("fb_message", caption),
-                          photo_url=item["media"][0] if fmt != "reels" else None)
+            payload = {'message':item.get('fb_message', caption),
+                       'photo_url':item['media'][0] if fmt!='reels' else None}
+            fb_receipt = receipts.once(backend, 'facebook', FB_PAGE, 'instagram:'+material,
+                payload, lambda: {'external_id':fb_post(payload['message'], photo_url=payload['photo_url'])})
+            fid = fb_receipt['external_id']
             print(f"   ✅ Facebook: {fid}")
-        except MetaError as e:
+        except (MetaError, receipts.ReceiptError) as e:
             print(f"   ⚠️ Facebook не принял ({e}) — в Instagram при этом всё вышло")
     return mid
 

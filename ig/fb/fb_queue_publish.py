@@ -27,6 +27,7 @@
    молча, хуже отсутствующей, потому что выглядит сделанной.
 """
 import datetime
+import publication_receipts as receipts
 import json
 import os
 import pathlib
@@ -46,6 +47,18 @@ _МЕТКА = re.compile(r"^\W*(ЭПИЗОД|СПЕЦВЫПУСК)\s+№?(\d+)(?
 
 def метка(текст):
     """«🎙 ЭПИЗОД 9 · ч. 1\\n…» → «Эп.9 ч.1». Не выпуск — None."""
+    текст = re.sub(r'<[^>]+>', '', текст or '')
+    if re.match(r'^\W*ДА ДЕТКА 2\s*[·—-]', текст, re.I):
+        dd = re.search(r'·\s*ВЫПУСК\s+(\d+)', текст, re.I)
+        if dd:
+            return 'ДД2-'+dd.group(1).zfill(2)
+        dd = re.search(r'·\s*СПЕЦВЫПУСК\s*№?\s*(\d+)', текст, re.I)
+        if dd:
+            return 'ДД2-спец'+dd.group(1)
+        title = re.search(r'\n«(.+?)»', текст)
+        path = pathlib.Path(__file__).with_name('publication_labels.json')
+        labels = json.loads(path.read_text()) if path.exists() else {}
+        return labels.get(title.group(1)) if title else None
     м = _МЕТКА.match(текст or "")
     if not м:
         return None
@@ -87,7 +100,10 @@ def решить(задание, сегодня, на_странице, прин
             # пост, отсюда не видно — мог и сегодня, при ручном перезапуске. Поэтому
             # помечаем и молчим до следующего дня очереди: пропуск дня дешевле
             # двух выпусков подряд.
-            п["опубликовано"] = {"дата": None, "id": None, "как": "найден в ленте Страницы"}
+            found = на_странице.get(п['метка'], {}) if isinstance(на_странице, dict) else {}
+            п["опубликовано"] = {"дата": None, "id": found.get('id'), "как": "найден в ленте Страницы"}
+            if found.get('permalink'):
+                п['опубликовано']['permalink'] = found['permalink']
             return None, f"{п['метка']} уже на Странице без отметки — отметил, сегодня молчу"
         return п, f"следующий: {п['метка']}"
     return None, "очередь пуста — все выпуски на Странице"
@@ -112,13 +128,14 @@ def запрос(страница, п):
 
 def лента(страница, токен):
     """Метки выпусков в ленте Страницы. None — если не ответила."""
-    поля = urllib.parse.urlencode({"fields": "message", "limit": "100", "access_token": токен})
+    поля = urllib.parse.urlencode({"fields": "message,id,permalink_url", "limit": "100", "access_token": токен})
     try:
         с = urllib.request.urlopen(f"{API}/{страница}/published_posts?{поля}", timeout=60)
         данные = json.loads(с.read())["data"]
     except Exception:                                   # noqa: BLE001
         return None
-    return {м for м in (метка(x.get("message")) for x in данные) if м}
+    return {метка(x.get('message')): {'id':x.get('id'), 'permalink':x.get('permalink_url')}
+            for x in данные if метка(x.get('message'))}
 
 
 def главная():
@@ -130,11 +147,14 @@ def главная():
     сегодня = сегодня_мск()
 
     на_странице = лента(страница, токен) if токен and страница else None
+    if на_странице is None and not сухо:
+        raise receipts.ReceiptError('Лента Страницы не прочитана — публикация остановлена')
     п, почему = решить(задание, сегодня, на_странице, принуд)
     if принуд:
         print("⚠️ принудительно: защита «раз в сутки» снята (сверка с лентой осталась)")
     # Отметки «найден в ленте» сохраняем даже без публикации.
-    ЗАДАНИЕ.write_text(json.dumps(задание, ensure_ascii=False, indent=1), encoding="utf-8")
+    if not сухо:
+        receipts.atomic_json(ЗАДАНИЕ, задание)
     print(f"📅 {сегодня:%d.%m.%Y} · {почему}")
     if сухо:
         # До старта решение молчит раньше, чем видно, живы ли секреты и чтение
@@ -153,17 +173,18 @@ def главная():
         return 0
 
     поля["access_token"] = токен
-    данные = urllib.parse.urlencode(поля).encode()
-    ответ = json.loads(urllib.request.urlopen(url, данные, timeout=120).read())
-    # /photos возвращает post_id (история в ленте) и id (сам фотообъект) —
-    # для сверки с лентой нужен post_id; /feed отдаёт только id.
-    ид = ответ.get("post_id") or ответ.get("id")
-    if not ид:
-        # Отметку не ставим: пропуск лечится следующим днём очереди, ложная отметка — нет.
-        print(f"❌ Meta не вернула id: {ответ}")
-        return 1
-    п["опубликовано"] = {"дата": сегодня.isoformat(), "id": ид}
-    ЗАДАНИЕ.write_text(json.dumps(задание, ensure_ascii=False, indent=1), encoding="utf-8")
+    def send():
+        данные = urllib.parse.urlencode(поля).encode()
+        ответ = json.loads(urllib.request.urlopen(url, данные, timeout=120).read())
+        ид = ответ.get("post_id") or ответ.get("id")
+        if not ид:
+            raise receipts.UnknownOutcome('Meta не вернула ID')
+        return {'external_id': str(ид), 'permalink':'https://www.facebook.com/'+str(ид)}
+    receipt = receipts.once(receipts.store(), 'facebook', страница, п['метка'],
+        {k:v for k,v in поля.items() if k!='access_token'}, send)
+    ид = receipt['external_id']
+    п["опубликовано"] = {"дата": сегодня.isoformat(), "id": ид, "permalink": receipt["permalink"]}
+    receipts.atomic_json(ЗАДАНИЕ, задание)
     print(f"✅ опубликовано: {ид} — отметка записана, workflow обязан её закоммитить")
     return 0
 
