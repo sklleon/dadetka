@@ -35,6 +35,7 @@ not available». Для карусели контейнеров столько �
 """
 import argparse
 import publication_receipts as receipts
+import publication_approval as approval
 import json
 import os
 import pathlib
@@ -301,6 +302,11 @@ def run_item(item, dry=False):
         print(f"   подпись ({len(caption)} зн.):\n{caption}")
         print(f"   первым комментарием: {item.get('comment', '—')}")
         return None
+    try:
+        approval.require(item, HERE, 'instagram')
+        approval.verify_public(item, HERE, 'instagram')
+    except approval.ApprovalError as exc:
+        raise MetaError(str(exc)) from None
     backend = receipts.store()
     material = item['key']+':'+fmt
     existing = backend.read(receipts.key_for('instagram', IG_USER, material))
