@@ -47,6 +47,8 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # долговременный intent до публикации
     steps:
       - uses: actions/checkout@v4
 
@@ -56,6 +58,7 @@ jobs:
 
       - name: Опубликовать
         env:
+          RECEIPTS_TOKEN: ${{ github.token }}
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}

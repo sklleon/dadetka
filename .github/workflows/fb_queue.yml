@@ -49,6 +49,7 @@ jobs:
 
       - name: Опубликовать
         env:
+          RECEIPTS_TOKEN: ${{ github.token }}
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
         run: |
